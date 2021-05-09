@@ -1,9 +1,10 @@
-import './App.css';
+import "./App.css";
+import CartItem from "./CartItem"
 
 function App() {
-    return ( <
-        p > App Component < /p>
-    );
+  return (
+    <CartItem/>  
+  );
 }
 
 export default App;
