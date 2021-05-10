@@ -35,10 +35,22 @@ class App extends React.Component {
     const index = this.state.products.indexOf(product);
     this.state.products[index].qty++;
 
-    this.setState((prevState) => {
-      return {
-        products: this.state.products,
-      };
+    this.setState({
+      products: this.state.products,
+    });
+  };
+  handleDecreaseQuantity = (product) => {
+    // console.log("it's working");
+    const index = this.state.products.indexOf(product);
+
+    if (this.state.products[index].qty === 0) {
+      return;
+    }
+
+    this.state.products[index].qty--;
+
+    this.setState({
+      products: this.state.products,
     });
   };
 
@@ -48,6 +60,7 @@ class App extends React.Component {
       <Cart
         products={this.state.products}
         onIncreaseQuantity={this.handleIncreaseQuantity}
+        onDecreaseQuantity={this.handleDecreaseQuantity}
       />
     );
   }

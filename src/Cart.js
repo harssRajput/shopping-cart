@@ -1,14 +1,20 @@
 import CartItem from "./CartItem";
 
 function Cart(props) {
-  const { products, onIncreaseQuantity } = props;
+  const { products, onIncreaseQuantity, onDecreaseQuantity } = props;
   return (
     <div>
-      {products.map((product) => {
+      {
+      products.map((product) => {
         return (
-          <CartItem product={product} onIncreaseQuantity={onIncreaseQuantity} />
+          <CartItem
+            product={product}
+            onIncreaseQuantity={onIncreaseQuantity}
+            onDecreaseQuantity={onDecreaseQuantity}
+          />
         );
-      })}
+      })
+      }
     </div>
   );
 }
