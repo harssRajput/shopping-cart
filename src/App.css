@@ -22,3 +22,7 @@
     border-radius: 5px solid black;
     margin: 10px;
 }
+
+.cartItem .action-button:hover {
+    cursor: pointer;
+}
