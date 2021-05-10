@@ -4,7 +4,12 @@ import trashIcon from "./trash.png";
 
 function CartItem(props) {
   const { price, title, qty } = props.product;
-  const { onIncreaseQuantity, onDecreaseQuantity, product } = props;
+  const {
+    onIncreaseQuantity,
+    onDecreaseQuantity,
+    onDeleteItem,
+    product,
+  } = props;
 
   return (
     <div className="cartItem">
@@ -36,7 +41,9 @@ function CartItem(props) {
             className="action-button"
             src={trashIcon}
             alt=""
-            // onClick={props.onIncreaseQuantity}
+            onClick={() => {
+              onDeleteItem(product.id);
+            }}
           />
         </div>
       </div>

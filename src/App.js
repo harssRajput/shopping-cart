@@ -53,6 +53,16 @@ class App extends React.Component {
       products: this.state.products,
     });
   };
+  handleDeleteItem = (id) => {
+    const item = this.state.products.filter((product) => {
+      return product.id !== id;
+    });
+
+    // console.log("it's working", item);
+    this.setState({
+      products: item,
+    });
+  };
 
   render() {
     // console.log("inside render", typeof(this.state.products));
@@ -61,6 +71,7 @@ class App extends React.Component {
         products={this.state.products}
         onIncreaseQuantity={this.handleIncreaseQuantity}
         onDecreaseQuantity={this.handleDecreaseQuantity}
+        onDeleteItem={this.handleDeleteItem}
       />
     );
   }
