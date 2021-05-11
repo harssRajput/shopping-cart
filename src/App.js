@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import Cart from "./Cart";
+import Navbar from "./Navbar";
 
 class App extends React.Component {
   constructor() {
@@ -64,15 +65,29 @@ class App extends React.Component {
     });
   };
 
+  getItemCount = () => {
+    const { products } = this.state;
+
+    let count=0;
+    products.forEach((product) => {
+      count+=product.qty;
+    });
+
+    return count;
+  };
+
   render() {
     // console.log("inside render", typeof(this.state.products));
     return (
-      <Cart
-        products={this.state.products}
-        onIncreaseQuantity={this.handleIncreaseQuantity}
-        onDecreaseQuantity={this.handleDecreaseQuantity}
-        onDeleteItem={this.handleDeleteItem}
-      />
+      <div>
+        <Navbar count={this.getItemCount()} />
+        <Cart
+          products={this.state.products}
+          onIncreaseQuantity={this.handleIncreaseQuantity}
+          onDecreaseQuantity={this.handleDecreaseQuantity}
+          onDeleteItem={this.handleDeleteItem}
+        />
+      </div>
     );
   }
 }
