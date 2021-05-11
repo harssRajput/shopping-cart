@@ -11,19 +11,19 @@ class App extends React.Component {
       products: [
         {
           title: "phone",
-          price: 90,
+          price: 100,
           qty: 1,
           id: 1,
         },
         {
           title: "watch",
-          price: 9,
+          price: 10,
           qty: 1,
           id: 2,
         },
         {
           title: "laptop",
-          price: 999,
+          price: 1000,
           qty: 1,
           id: 3,
         },
@@ -68,12 +68,23 @@ class App extends React.Component {
   getItemCount = () => {
     const { products } = this.state;
 
-    let count=0;
+    let count = 0;
     products.forEach((product) => {
-      count+=product.qty;
+      count += product.qty;
     });
 
     return count;
+  };
+
+  getCartTotalPrice = () => {
+    const { products } = this.state;
+
+    let price = 0;
+    products.forEach((product) => {
+      price += product.qty * product.price;
+    });
+
+    return price;
   };
 
   render() {
@@ -87,6 +98,7 @@ class App extends React.Component {
           onDecreaseQuantity={this.handleDecreaseQuantity}
           onDeleteItem={this.handleDeleteItem}
         />
+        <div>Total Price : {this.getCartTotalPrice()} Rs</div>
       </div>
     );
   }
