@@ -1,4 +1,4 @@
-import trashIcon from "./trash.png";
+import cartIcon from "./cart.png";
 
 
 function Navbar(props) {
@@ -6,7 +6,7 @@ function Navbar(props) {
   return (
       <div className="navbar">
           <div className="cart-icon-container">
-              <img className="cart-icon" src={trashIcon} alt="cart-icon" />
+              <img className="cart-icon" src={cartIcon} alt="cart-icon" />
               <span className="cart-count" >{count}</span>
           </div>
       </div>
